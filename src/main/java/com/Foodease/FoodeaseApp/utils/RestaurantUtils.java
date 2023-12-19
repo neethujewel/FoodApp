@@ -24,7 +24,7 @@ public class RestaurantUtils {
     public static String getUUId(){
         Date date = new Date();
         long time = date.getTime();
-        return "BILL"+ time;
+        return "BILL-"+ time;
     }
 
     public static JSONArray getJsonArrayFromString(String data) throws JSONException{

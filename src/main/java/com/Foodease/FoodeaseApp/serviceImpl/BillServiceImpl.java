@@ -45,10 +45,10 @@ public class BillServiceImpl implements BillService {
                     requestMap.put("uuid",fileName);
                     insertBill(requestMap);
                 }
-                String data = "Name : "+requestMap.get("name")+"\n"+
-                        "Contact Number :"+requestMap.get("contactNumber")+"\n"+
-                        "Email : "+requestMap.get("email")+"\n"+
-                        "Payment Method : "+requestMap.get("paymentMethod");
+                String data = "name:"+requestMap.get("name")+"\n"+
+                        "contactNumber:"+requestMap.get("contactNumber")+"\n"+
+                        "email:"+requestMap.get("email")+"\n"+
+                        "paymentMethod:"+requestMap.get("paymentMethod");
 
                 Document document = new Document();
                 PdfWriter.getInstance(document,new FileOutputStream(RestaurantConstants.STORE_LOCATION+"\\"+fileName+".pdf"));
@@ -161,9 +161,9 @@ public class BillServiceImpl implements BillService {
     }
 
     private boolean validateRequestMap(Map<String, Object> requestMap) {
-        return requestMap.containsKey("name") && requestMap.containsKey("email") &&
-                requestMap.containsKey("contactNumber") &&
-                requestMap.containsKey("paymentMethod") && requestMap.containsKey("total")&&
-                requestMap.containsKey("productDetails");
+        return requestMap.containsKey("name") && requestMap.containsKey("contactNumber") &&
+                requestMap.containsKey("email") &&
+                requestMap.containsKey("paymentMethod") && requestMap.containsKey("productDetails")&&
+                requestMap.containsKey("total");
     }
 }
